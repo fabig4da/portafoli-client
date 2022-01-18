@@ -1,7 +1,12 @@
 import React from 'react'
-import { getLocalImages, sectionIds } from '../../../helpers/helpers'
+import { sectionIds } from '../../../helpers/helpers'
+import { useQuery } from 'react-query';
+import { templateRepository } from '../../../repository/template';
 
 export const Templates = () => {
+    const { isLoading, error, data } = useQuery('techs', templateRepository.findAll)
+    // console.log(data)
+    if (isLoading) return '<h2>Loading... <h2>'
     return (
         <div className="templetes fov-center w-100" id={sectionIds.templates}>
             <div className=" tp-title">
@@ -9,35 +14,19 @@ export const Templates = () => {
             </div>
             <p className="gl-intro">Here are some templates that I have created for different purposes</p>
             <div className="templetes-content flex-wrap gap">
-                <div className="tp-img">
-                    <img src={getLocalImages('./t1.png')} alt="" />
-                    <div className="tp-img-cover fov-center">
-                        <h3>Title</h3>
-                        <button className="btn">Go</button>
-                    </div>
-                </div>
-                <div className="tp-img">
-                    <img src={getLocalImages('./t2.png')} alt="" />
-                    <div className="tp-img-cover fov-center">
-                        <h3>Title</h3>
-                        <button className="btn">Go</button>
-                    </div>
-                </div>
-                <div className="tp-img">
-                    <img src={getLocalImages('./t3.png')} alt="" />
-                    <div className="tp-img-cover fov-center">
-                        <h3>Title</h3>
-                        <button className="btn">Go</button>
-                    </div>
-                </div>
-                <div className="tp-img">
-                    <img src={getLocalImages('./t4.png')} alt="" />
-                    <div className="tp-img-cover fov-center">
-                        <h3>Title</h3>
-                        <button className="btn">Go</button>
-                    </div>
-                </div>
-
+                {
+                    data.data.data.map((template) => (
+                        <div className="tp-img" key={template._id}>
+                            <img src={template.img} alt="" />
+                            <div className="tp-img-cover fov-center">
+                                <h3>{template.title}</h3>
+                                <button className="btn">
+                                    <a href={template.url} target='_blank'>GO</a>
+                                </button>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     )
