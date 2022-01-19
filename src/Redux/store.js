@@ -1,8 +1,12 @@
 const { createStore, combineReducers, compose, applyMiddleware } = require('redux');
 const { authReducer } = require('./reducers/authReducer');
+const { tempReducer } = require('./reducers/tempReducer');
+const { messageReducer } = require('./reducers/messageReduces');
 
 const reducers = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    tmp: tempReducer,
+    message: messageReducer
 });
 
 

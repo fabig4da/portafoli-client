@@ -1,6 +1,6 @@
 import {types} from '../types';
 
-export const _login = (options:any) => ({
+export const _login = (options) => ({
 	type: types.logIn,
 	payload: options
 });
