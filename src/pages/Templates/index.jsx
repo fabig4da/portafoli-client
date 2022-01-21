@@ -2,7 +2,7 @@ import React from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { ContainerScrollY, IconButton, NavButton } from '../../components/ui'
+import { Charging, ContainerScrollY, IconButton, NavButton } from '../../components/ui'
 import { deleteItem, goToEdit } from '../../helpers/components'
 import { templateRepository } from '../../repository/template'
 
@@ -13,6 +13,8 @@ export const Template = () => {
     const { isLoading, data } = useQuery('templates', templateRepository.findAll)
     const mutation = useMutation(data => templateRepository.delete(data.tid))
 
+    if (isLoading) return <Charging />
+    if (mutation.isLoading) return <Charging />
 
     return (
         <>

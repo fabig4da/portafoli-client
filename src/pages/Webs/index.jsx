@@ -2,7 +2,7 @@ import React from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { ContainerScrollY, IconButton, NavButton } from '../../components/ui'
+import { Charging, ContainerScrollY, IconButton, NavButton } from '../../components/ui'
 import { deleteItem, goToEdit } from '../../helpers/components'
 import { workRepository } from '../../repository/work'
 
@@ -11,6 +11,9 @@ export const Works = () => {
     const navigate = useNavigate();
     const { isLoading, error, data } = useQuery('works', workRepository.findAll)
     const mutation = useMutation(data => workRepository.delete(data.tid))
+
+    if (isLoading) return <Charging />
+    if (mutation.isLoading) return <Charging />
 
     return (
         <>

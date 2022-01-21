@@ -6,6 +6,7 @@ import { Tecnologies } from '../../components/sections/tecnologies/Tecnologies'
 import { Templates } from '../../components/sections/templates/Templates'
 import { Websites } from '../../components/sections/websites/Websites'
 import { PerfilCard } from '../../components/ui/Cards/perfil/PerfilCard'
+import { Contact } from '../../components/ui/Contact'
 
 export const Home = () => {
     return (
@@ -17,6 +18,7 @@ export const Home = () => {
             <Me />
             <Footer />
             <PerfilCard />
+            <Contact />
         </>
     )
 }

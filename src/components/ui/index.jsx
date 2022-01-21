@@ -140,6 +140,7 @@ export const Charge = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 30;
     span{
         width: 100px;
         height: 100px;

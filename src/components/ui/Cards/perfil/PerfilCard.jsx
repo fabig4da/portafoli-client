@@ -14,10 +14,8 @@ export const PerfilCard = () => {
             // window.scrollTo(0, 0 -{{,{}}})
             document.body.classList.add('alert-global-active')
             return setShow(true)
-        }, 2000)
-
-        console.log(document.body);
-    }, [])
+        }, 4000)
+   }, [])
 
     useEffect(() => {
         if (!show) {

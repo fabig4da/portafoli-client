@@ -10,7 +10,8 @@ export const CreateTech = () => {
     const dispatch = useDispatch();
 
     const { register, handleSubmit } = useForm();
-    const { mutate, isLoading, isError, isSuccess } = useMutation(data => techRepository.create(data))
+    const { mutate, isLoading} = useMutation(data => techRepository.create(data))
+    
     const onSubmit = data => {      
         mutate(data, {
             onSuccess: async()=>{
