@@ -9,7 +9,7 @@ import { workRepository } from '../../repository/work'
 export const Works = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { isLoading, error, data } = useQuery('works', workRepository.findAll)
+    const { isLoading, data } = useQuery('works', workRepository.findAll)
     const mutation = useMutation(data => workRepository.delete(data.tid))
 
     if (isLoading) return <Charging />
@@ -21,7 +21,7 @@ export const Works = () => {
             <NavButton 
                 onClick={()=>navigate('/dashboard/creat_works')}
             >
-                <i class="fas fa-plus"></i>
+                <i className="fas fa-plus"></i>
                 Create
             </NavButton>
             <ContainerScrollY>

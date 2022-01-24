@@ -14,7 +14,7 @@ export const Tech = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { isLoading, error, data } = useQuery('techs', techRepository.findAll)
+    const { isLoading, data } = useQuery('techs', techRepository.findAll)
     const mutation = useMutation(data => techRepository.delete(data.tid))
 
     const deleteTech = async (tid) => {
@@ -42,7 +42,7 @@ export const Tech = () => {
     return (
         <>
             <NavButton onClick={() => navigate('/dashboard/create_tech')}>
-                <i class="fas fa-plus"></i>
+                <i className="fas fa-plus"></i>
                 Create
             </NavButton>
             <ContainerScrollY>

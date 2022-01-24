@@ -34,8 +34,8 @@ export const PerfilCard = () => {
                         </div>
                         <div className="cp-body w-100">
                             <img src={getLocalImages('./perfil.png')} alt="" />
-                            <p>Hi, My name is <span>Fabian Garces</span>, I'm a full stack web developer and this is my services briefcase</p>
-                            <button className="btcp">Contact Me</button>
+                            <p>Hi, My name is <span>Fabian Garces</span>, I'm a full stack web developer. You're about to see my services briefcase</p>
+                            {/* <button className="btcp">Contact Me</button> */}
                         </div>
 
                     </div>

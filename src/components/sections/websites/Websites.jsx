@@ -8,8 +8,6 @@ export const Websites = () => {
 
     const { isLoading, data } = useQuery('works', workRepository.findAll)
 
-    console.log(data);
-
     return (
         <div className="web-sites w-100" id={sectionIds.works}>
             <div className=" web-title">

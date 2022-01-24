@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {messageRepository} from '../../../repository/message'
+import { messageRepository } from '../../../repository/message'
 import { useMutation } from 'react-query';
 import styled from 'styled-components';
 import { Charging } from '..';
@@ -10,32 +10,32 @@ import { useDispatch } from 'react-redux';
 
 export const Contact = () => {
     const [visible, setVisible] = useState(false);
-    const {mutate, isLoading} = useMutation(data=>messageRepository.create(data));
-    const {register, handleSubmit, reset} = useForm();
-    const dispatch =  useDispatch();
+    const { mutate, isLoading } = useMutation(data => messageRepository.create(data));
+    const { register, handleSubmit, reset } = useForm();
+    const dispatch = useDispatch();
 
-    const closeChatWindow = ({target})=>{
-        if(target.id && target.id === 'chat-container'){
+    const closeChatWindow = ({ target }) => {
+        if (target.id && target.id === 'chat-container') {
             setVisible(false);
         }
     }
 
-    const sendMessage = (data)=>{
+    const sendMessage = (data) => {
         console.log(data);
         mutate(data, {
-            onSuccess: async ()=>{
+            onSuccess: async () => {
                 dispatch(_succesMessage("Message sent, I'll contact you as soon as posible, thanks!!!"))
                 setVisible(false);
                 reset();
             },
-            onError: async ()=>{
+            onError: async () => {
                 dispatch(_errorMessage("It's occured an error, your message wasn't sent"))
             }
 
         })
     }
 
-    if(isLoading) return <Charging />
+    if (isLoading) return <Charging />
 
     return (
         <>
@@ -66,15 +66,15 @@ export const Contact = () => {
                             {...register("msg", { required: true })}
 
                         ></textarea>
-                        <input type="submit" className="btn btn-primary mt-3" value="Send"/>
-                            
-                        
+                        <input type="submit" className="btn btn-primary mt-3" value="Send" />
+
+
                     </ChatBox>
 
                 </ContactContainer>
             }
             <ChatIcon onClick={() => setVisible(val => !val)}>
-                <i class="fas fa-comment">  </i>
+                <i className="fas fa-comment">  </i>
             </ChatIcon>
         </>
     )
@@ -91,8 +91,6 @@ const ContactContainer = styled.div`
 `
 
 const ChatBox = styled.form`
-    width: 400px;
-    height: 500px;
     background-color: #fff;
     position: absolute;
     right: 15px;
@@ -106,6 +104,14 @@ const ChatBox = styled.form`
     transition: all 1s  ease-in-out;
     textarea{
         min-height: 200px;
+    }
+    @media (min-width: 700px){
+        width: 400px;
+        height: 500px;
+    }
+    @media (max-width: 699px){
+        width: 80%;
+        height: 80%;
     }
 `
 

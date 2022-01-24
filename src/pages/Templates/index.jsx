@@ -20,7 +20,7 @@ export const Template = () => {
         <>
 
             <NavButton onClick={()=>navigate('/dashboard/create_template')}>
-                <i class="fas fa-plus"></i>
+                <i className="fas fa-plus"></i>
                 Create
             </NavButton>
             <ContainerScrollY>

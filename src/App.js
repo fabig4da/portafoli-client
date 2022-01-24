@@ -8,7 +8,6 @@ import { Router } from './router/Router';
 
 function App() {
   const message = useSelector(state => state.message);
-  console.log(message);
   
   return (
     <BrowserRouter >
