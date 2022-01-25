@@ -17,12 +17,17 @@
         transition: .5s;
         border-radius: 10px;
         backdrop-filter: blur(100px);
+        background: rgba(0, 0, 0, 0.404);
         flex-direction: column;
         justify-content: center;
         gap: 30px;
         color: #eee;
         .btn{
             color: #eee;
+            a{
+                text-decoration: none;
+                color: #fff;
+            }
             // background-color: ;
         }
     }

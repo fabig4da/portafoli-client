@@ -7,7 +7,7 @@ export const Header = () => {
     const [item] = useState([
         { val: 'Templates', id: sectionIds.templates },
         { val: 'Skills', id: sectionIds.skills },
-        { val: 'Works', id: sectionIds.works },
+        { val: 'Projects', id: sectionIds.works },
         { val: 'About me', id: sectionIds.aboutME }
     ])
     const menu = useRef()

@@ -12,6 +12,7 @@ import { Works } from "../pages/Webs";
 import { Dashboard } from "./Dashboard";
 import { CreateWork } from "../pages/Webs/CreateWork";
 import { EditWork } from "../pages/Webs/EditWork";
+import { NoFound } from "../pages/NoFound";
 
 export const Router = () => {
 
@@ -33,6 +34,7 @@ export const Router = () => {
                     
                     edit_tech
                 </Route>
+                <Route path='*' element={<NoFound />} />
             </Routes>
         </>
 

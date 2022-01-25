@@ -14,8 +14,6 @@ export const Home = () => {
             <Portada />
             <Templates />
             <Tecnologies />
-            <Tecnologies />
-            <Tecnologies />
             <Websites />
             <Me />
             <Footer />
