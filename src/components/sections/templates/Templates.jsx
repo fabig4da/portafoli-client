@@ -2,11 +2,13 @@ import React from 'react'
 import { sectionIds } from '../../../helpers/helpers'
 import { useQuery } from 'react-query';
 import { templateRepository } from '../../../repository/template';
+import { Spinner } from '../../ui/Spinner';
 
 export const Templates = () => {
     const { isLoading, error, data } = useQuery('techs', templateRepository.findAll)
     // console.log(data)
-    if (isLoading) return '<h2>Loading... <h2>'
+    if (isLoading) return <Spinner />;
+
     return (
         <div className="templetes fov-center w-100" id={sectionIds.templates}>
             <div className=" tp-title">
